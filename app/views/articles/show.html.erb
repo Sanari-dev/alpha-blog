@@ -1,13 +1,16 @@
 <h4 class="custom-title-menu">Article details</h4>
-<p><strong>Title: </strong><%= @article.title %></p>
-<p><strong>Description: </strong><%= @article.description %></p>
-
-<p>
-  <%= link_to 'Edit', edit_article_path(@article), method: :edit %>
-</p>
-<p>
-  <%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete?" } %>
-</p>
-<p>
-  <%= link_to 'List of articles', articles_path %>
-</p>
+<div class="card text-center custom-card">
+  <div class="card-header">
+    <em>by Sanari</em>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title"><%= @article.title %></h4>
+    <p class="card-text custom-description"><%= @article.description %></p>
+    <%= link_to 'Edit', edit_article_path(@article), method: :edit, class: "btn btn-outline-success" %>
+    <%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete?" }, class: "btn btn-outline-danger" %>
+  </div>
+  <div class="card-footer text-muted">
+    <small>Created <%= time_ago_in_words(@article.created_at) %> ago, edited <%= time_ago_in_words(@article.updated_at) %> ago</small>
+  </div>
+</div>
+<%= render 'shared/link-article-listing' %>
