@@ -1,0 +1,104 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap";
+
+.alpha-blog-color{
+  color: #0095f7 !important;
+}
+
+// navbar
+.custom-navbar-container{
+  padding: 1rem 0 0 0;
+}
+
+.nav-custom-brand{
+  font-size: 2rem !important;
+}  
+
+.navbar-right{
+  flex-direction: row-reverse;  
+}
+
+.nav-item-custom{
+  font-family: Jost,sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.6667;
+  letter-spacing: normal;
+  word-break: break-word;
+  font-size: 17px;
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.active-custom{
+  background-color: #0095f7;
+  border-radius: 10px;
+  padding: 0.5em 1em;
+  color: white !important;
+}
+
+// modules
+.custom-title-menu{
+  padding-top: 2.5rem;
+}
+
+// home
+.banner-jumbo{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 15rem;
+  width: 100%;
+}
+
+.banner-text{
+  font-family: Jost,sans-serif;
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 1.2;
+  letter-spacing: .5px;
+}
+
+// buttton
+.custom-btn-primary{
+  background-color: #0095f7 !important;
+  border-color: #0095f7 !important;
+}
+
+// card
+.custom-card{
+  margin: 1.3rem 1.3rem;
+  flex-basis: 30%;
+  padding: 0 0 !important;
+}
+
+// article
+.custom-top-title-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.custom-title{
+  color: #0095f7 !important;
+  text-decoration: none !important;
+}
+
+// form
+.custom-form-container{
+  margin: 2rem 0;
+}
