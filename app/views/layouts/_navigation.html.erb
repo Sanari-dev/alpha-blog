@@ -12,8 +12,14 @@
         <li class="nav-item">
           <%= link_to "Home", root_path, class: "nav-link nav-item-custom active active-custom", id: "home" %>
         </li>
-        <li class="nav-item nav-item-custom">
-          <%= link_to "Articles", articles_path, class: "nav-link", id: "articles" %>
+        <li class="nav-item dropdown nav-item-custom">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Article
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><%= link_to "Articles", articles_path, class: "dropdown-item", id: "articles" %></li>
+            <li><%= link_to "Create new article", new_article_path, class: "dropdown-item", id: "new-article" %></li>            
+          </ul>
         </li>
         <li class="nav-item nav-item-custom">
           <%= link_to "About", about_path, class: "nav-link", id: "about" %>

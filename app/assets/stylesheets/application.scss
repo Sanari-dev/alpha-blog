@@ -19,6 +19,11 @@
   color: #0095f7 !important;
 }
 
+// container
+.custom-container{
+  margin-bottom: 7.5rem;
+}
+
 // navbar
 .custom-navbar-container{
   padding: 1rem 0 0 0;
@@ -106,4 +111,9 @@
 // form
 .custom-form-container{
   margin: 2rem 0;
+}
+
+// footer
+.custom-footer-container{
+  display: block !important;
 }
