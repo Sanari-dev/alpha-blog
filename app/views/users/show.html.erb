@@ -1,0 +1,26 @@
+<h4 class="custom-title-menu"><%= @user.username %>'s profile</h4>  
+<div class="card custom-profile-card" style="width: 18rem;">
+  <%=link_to gravatar_for(@user, {size: 200, class: "card-img-top"}), @user%>
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.username %></h5>
+    <p class="card-text"><%= @user.email %></p>
+    <p class="card-text"><%= @user.articles.count %> articles</p>
+    <div class="user-footer-action">
+      <%= link_to 'Update', edit_user_path(@user), method: :edit, class: "btn btn-outline-success" %>
+    </div>    
+  </div>
+  <div class="card-footer text-muted">
+    <small>Joined <%= time_ago_in_words(@user.created_at) %> ago</small>
+  </div>
+</div>
+<div class="custom-top-title-container custom-title-menu">
+  <h4><%= @user.username %>'s articles</h4>
+</div>
+<% if @articles.empty? %>
+<p>This user doesn't have any articles</p>
+<% else %>
+<%= render 'articles/article' %>
+<div class="flickr_pagination">
+  <%= will_paginate @articles, :container => false %>
+</div>
+<% end %>

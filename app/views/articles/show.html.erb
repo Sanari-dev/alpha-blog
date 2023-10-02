@@ -1,7 +1,7 @@
 <h4 class="custom-title-menu">Article details</h4>
 <div class="card text-center custom-card">
   <div class="card-header">
-    <em>by <%= @article.user.username %></em>
+    <em>by <%= link_to @article.user.username, user_path(@article.user) %></em>
   </div>
   <div class="card-body">
     <h4 class="card-title"><%= @article.title %></h4>

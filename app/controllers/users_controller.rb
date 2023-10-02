@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update]
+  before_action :set_user, only: [:show, :edit, :update]
+
+  def index
+    @users = User.paginate(page: params[:page], per_page: 6)
+  end
 
   def new
     @user = User.new
@@ -15,13 +19,17 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+    @articles = @user.articles.paginate(page: params[:page], per_page: 6)
+  end
+
   def edit
   end
 
   def update
     if @user.update(user_params)
-      flash[:notice] = "Your accoutn information was succesfully updated"
-      redirect_to articles_path
+      flash[:notice] = "Your account information was succesfully updated"
+      redirect_to @user
     else
       render :edit, status: :unprocessable_entity
     end
