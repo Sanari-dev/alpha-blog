@@ -1,14 +1,14 @@
-<%= render 'shared/errors' %>
+<%= render 'shared/errors', obj: @article %>
 <div class="col-6 custom-form-container">
   <%= form_with(model: @article, local: true) do |f| %>  
     <div class="mb-3">
       <%= f.label :title, class:"form-label" %> <br/>
-      <%= f.text_field :title, class:"form-control"  %>
+      <%= f.text_field :title, class:"form-control", placeholder: "Title of article" %>
     </div>
     <div class="mb-3">
       <%= f.label :description, class:"form-label"  %> <br/>
-      <%= f.text_area :description, class:"form-control" %>
+      <%= f.text_area :description, rows: 10, class:"form-control", placeholder: "Description of article" %>
     </div>
-    <%= f.submit class:"btn btn-primary"%>
+    <%= f.submit ( f.object.new_record? ? "Create" : "Update"), class:"btn btn-primary"%>
   <% end %>
 </div>

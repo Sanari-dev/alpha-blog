@@ -64,11 +64,17 @@
 // home
 .banner-jumbo{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
   justify-content: center;
-  align-items: flex-start;
   height: 15rem;
   width: 100%;
+  margin-top: 5em;
+  text-align: center;
+  background-color: #0095f7;
+  border-radius: 10px;
+  color: white !important;
 }
 
 .banner-text{
@@ -77,6 +83,8 @@
   font-size: 50px;
   line-height: 1.2;
   letter-spacing: .5px;
+  width: auto;
+  height: auto;
 }
 
 // buttton
