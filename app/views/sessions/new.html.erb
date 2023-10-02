@@ -1,0 +1,19 @@
+<div class="custom-auth-form">
+  <h4 class="custom-title-menu">Sign in</h4>
+  <div class="col-6 custom-form-container">
+    <%= form_with(scope: :session, url: login_path, local: true) do |f| %>  
+      <div class="mb-3">
+        <%= f.label :email, class:"form-label"  %> <br/>
+        <%= f.email_field :email, class:"form-control", placeholder: "Enter your email address" %>
+      </div>
+      <div class="mb-3">
+        <%= f.label :password, class:"form-label"  %> <br/>
+        <%= f.password_field :password, class:"form-control", placeholder: "Enter your password" %>
+      </div>
+      <div class="text-center">
+        <%= f.submit "Sign in", class:"btn btn-primary"%>
+        <p class="mt-4">Don't have an account? <%= link_to "Sign up", signup_path %> instead</p>
+      </div>      
+    <% end %>
+  </div>
+</div>

@@ -12,7 +12,9 @@
     <div class="mb-3">
       <%= f.label :password, class:"form-label"  %> <br/>
       <%= f.password_field :password, class:"form-control", placeholder: "Enter your password" %>
-    </div>
-    <%= f.submit ( f.object.new_record? ? "Sign up" : "Update"), class:"btn btn-primary"%>
+    </div>  
+    <div class="<%= f.object.new_record? ? "text-center" : "" %>">
+      <%= f.submit ( f.object.new_record? ? "Sign up" : "Update"), class:"btn btn-primary"%>  
+    </div>      
   <% end %>
 </div>
