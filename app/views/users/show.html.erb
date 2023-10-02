@@ -3,12 +3,13 @@
   <%=link_to gravatar_for(@user, {size: 200, class: "card-img-top"}), @user%>
   <div class="card-body">
     <h5 class="card-title"><%= @user.username %></h5>
+    <%= "Administrator" if @user.admin? %>
     <p class="card-text"><%= @user.email %></p>
     <p class="card-text"><%= @user.articles.count %> articles</p>
     <div class="user-footer-action">
-      <% if logged_in? && @user == current_user %>
-        <%= link_to 'Update', edit_user_path(current_user), method: :edit, class: "btn btn-outline-success" %>
-        <%= link_to 'Delete', user_path(current_user), data: {turbo_method: :delete, turbo_confirm: "Are you sure want to delete?"}, class: "btn btn-outline-danger" %>
+      <% if logged_in? && (@user == current_user || current_user.admin?) %>
+        <%= link_to 'Update', edit_user_path(@user), method: :edit, class: "btn btn-outline-success" %>
+        <%= link_to 'Delete', user_path(@user), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the user account and all associated articles?"}, class: "btn btn-outline-danger" %>
       <% end %>
     </div>    
   </div>
