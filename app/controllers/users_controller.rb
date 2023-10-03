@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_redirect, only: [:new, :create]
   before_action :require_user, except: [ :new, :create]
   before_action :require_valid_user, only: [:edit, :update, :destroy]
 
