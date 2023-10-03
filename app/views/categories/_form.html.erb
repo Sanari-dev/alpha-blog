@@ -1,0 +1,10 @@
+<%= render 'shared/errors', obj: @category %>
+<div class="col-6 custom-form-container">
+  <%= form_with(model: @category, local: true) do |f| %>  
+    <div class="mb-3">
+      <%= f.label :name, class:"form-label" %> <br/>
+      <%= f.text_field :name, class:"form-control", placeholder: "Enter category name"  %>
+    </div>
+    <%= f.submit ( f.object.new_record? ? "Create" : "Update"), class:"btn btn-primary"%>  
+  <% end %>
+</div>

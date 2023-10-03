@@ -22,12 +22,23 @@
               <li><%= link_to "Create new article", new_article_path, class: "dropdown-item", id: "new-article" %></li>            
             <% end %>
           </ul>
-          <% if logged_in? %>
-            <li class="nav-item">
-              <%= link_to "Users", users_path, class: "nav-link", id: "users" %>
-            </li>
-          <% end %>
         </li>
+        <li class="nav-item dropdown nav-item-custom">
+          <a class="nav-link dropdown-toggle" href="#" id="categoryDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Category
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+            <li><%= link_to "Categories", categories_path, class: "dropdown-item", id: "articles" %></li>
+            <% if logged_in? && current_user.admin? %>
+              <li><%= link_to "Create new category", new_category_path, class: "dropdown-item", id: "new-article" %></li>            
+            <% end %>
+          </ul>          
+        </li>
+        <% if logged_in? %>
+          <li class="nav-item nav-item-custom"">
+            <%= link_to "Users", users_path, class: "nav-link", id: "users" %>
+          </li>
+        <% end %>
         <li class="nav-item nav-item-custom">
           <%= link_to "About", about_path, class: "nav-link", id: "about" %>
         </li>

@@ -3,7 +3,7 @@
 </div>
 <div class="row align-items-start">
   <% @users.each do |user| %>
-    <div class="card custom-profile-card" style="width: 18rem;">
+    <div class="card custom-profile-card" style="width: 19rem;">
       <%= link_to gravatar_for(user, {size: 200, class: "card-img-top"}), user%>
       <div class="card-body">
         <h5 class="card-title"><%= link_to user.username, user, class: "custom-title" %></h5>

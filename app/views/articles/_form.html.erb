@@ -6,8 +6,12 @@
       <%= f.text_field :title, class:"form-control", placeholder: "Title of article" %>
     </div>
     <div class="mb-3">
-      <%= f.label :description, class:"form-label"  %> <br/>
+      <%= f.label :description, class:"form-label" %> <br/>
       <%= f.text_area :description, rows: 10, class:"form-control", placeholder: "Description of article" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :category, class:"form-label" %> <br/>
+      <%= f.collection_select :category_ids, Category.order(:name), :id, :name, {prompt: "Make your selection from the list belon (can be empty)"}, {multiple: true, class: "form-select"} %>
     </div>
     <%= f.submit ( f.object.new_record? ? "Create" : "Update"), class:"btn btn-primary"%>
   <% end %>

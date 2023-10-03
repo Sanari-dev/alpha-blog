@@ -154,6 +154,16 @@
   border-radius: 5px;
 }
 
+// category
+.custom-badge{
+  text-decoration: none;
+}
+
+.custom-badge:hover{
+  color: white !important;
+  background-color: #0095f7 !important;
+}
+
 // footer
 .custom-footer-container{
   display: block !important;

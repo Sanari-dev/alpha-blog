@@ -1,6 +1,8 @@
 <div class="custom-top-title-container custom-title-menu">
   <h4>Articles</h4>
-  <%= link_to 'Create', new_article_path, class: "btn btn-primary custom-btn-primary" %>
+  <% if logged_in? %>
+    <%= link_to 'Create', new_article_path, class: "btn btn-primary custom-btn-primary" %>
+  <% end %>
 </div>
 <%= render 'article' %>
 <div class="flickr_pagination">

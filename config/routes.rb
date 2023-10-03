@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :articles
-  resources :users, except:[:new]
+  resources :users, except: [:new]
+  resources :categories
 
   root 'pages#home'
   get 'about', to: 'pages#about'  

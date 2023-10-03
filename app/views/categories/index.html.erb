@@ -1,0 +1,27 @@
+<div class="custom-top-title-container custom-title-menu">
+  <h4>Categories</h4>
+  <% if logged_in? && current_user.admin? %>
+    <%= link_to 'Create', new_category_path, class: "btn btn-primary custom-btn-primary" %>
+  <% end %>
+</div>
+<div class="row align-items-start">
+  <% @categories.each do |category| %>
+    <div class="card text-center custom-card">
+      <div class="card-body">
+        <h5 class="card-title"><%= link_to category.name, category_path(category), class: "custom-title" %></h5>      
+        <p class="card-text"><%= pluralize(category.articles.count, "article") %></p>
+        <%= link_to 'View', category_path(category), class: "btn btn-outline-primary" %>
+         <% if logged_in? && current_user.admin? %>
+          <%= link_to 'Edit', edit_category_path(category), method: :edit, class: "btn btn-outline-success" %>
+          <%= link_to 'Delete', category_path(category), data: {turbo_method: :delete, turbo_confirm: "Are you sure you want to delete the category?"}, class: "btn btn-outline-danger" %>
+        <% end %>
+      </div>
+      <div class="card-footer text-muted">
+        <small>Created <%= time_ago_in_words(category.created_at) %> ago, edited <%= time_ago_in_words(category.updated_at) %> ago</small>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="flickr_pagination">
+  <%= will_paginate @categories, :container => false %>
+</div>

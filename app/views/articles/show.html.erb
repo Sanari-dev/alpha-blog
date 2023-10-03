@@ -6,6 +6,11 @@
   <div class="card-body">
     <h4 class="card-title"><%= @article.title %></h4>
     <p class="card-text custom-description"><%= @article.description %></p>
+    <p>
+      <% if @article.categories.any? %>
+        <%= render @article.categories %>
+      <% end %>
+    </p>    
     <% if logged_in? && (@article.user == current_user || current_user.admin?) %>
       <%= link_to 'Edit', edit_article_path(@article), method: :edit, class: "btn btn-outline-success" %>
       <%= link_to 'Delete', article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure want to delete?" }, class: "btn btn-outline-danger" %>
